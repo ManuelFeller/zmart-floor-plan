@@ -562,7 +562,25 @@ namespace ZmartFloorPlan\Drawing\Elements
       
     }
   }
-  
+
+  class Opening extends \ZmartFloorPlan\Drawing\Drawing
+  {
+    function __construct($width, $wallsize)
+    {
+      $this->Height = $wallsize;
+      $this->Width = $width;
+      $this->initPixels();
+      
+      for ($line = 0; $line < $this->Height; $line++) {
+        for ($row = 0; $row < $this->Width; $row++)
+        {
+          $this->Pixels[$line][$row] = 1;
+        }
+      }
+      
+    }
+  }
+
   class FireDetector extends \ZmartFloorPlan\Drawing\Drawing
   {
     function __construct()
