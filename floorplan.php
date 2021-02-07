@@ -1,6 +1,5 @@
 <?php /* Zmart Floor Plan | main class | MIT License | By Manuel Feller, 2016 - 2021 */
 
-
 namespace ZmartFloorPlan
 {	
 	/**
@@ -14,96 +13,148 @@ namespace ZmartFloorPlan
 	class ImageGenerator
 	{		
 		/**
-		 * ZWayActive
+		 * Should the Z-Way integration be activated or not
+		 * 
+		 * When setting this to `true` the `ImageGenerator` will call the configured Z-Way device list endpoint and integrate the results into the output.
+		 * 
+		 * default: `false` (not active)
 		 *
 		 * @var boolean
 		 */
-		public $ZWayActive;		
+		public $ZWayActive;
+
 		/**
-		 * ZWaySimulation
+		 * Shall an internally generated Z-Way data simulation be used
+		 * 
+		 * When setting this to `true` the `ImageGenerator` will use internally generated example device data instead of doing a real Z-Way API call.
+		 * 
+		 * default: `false` (not active)
 		 *
 		 * @var boolean
 		 */
-		public $ZWaySimulation;		
+		public $ZWaySimulation;
+
 		/**
-		 * ZWayDeviceListUrl
+		 * The URL to call to get the Z-Way device data
+		 * 
+		 * This URL is used to query the Z-Way to get the data for all devices
+		 * 
+		 * default: `'http://127.0.0.1:8083/ZAutomation/api/v1/devices'`
 		 *
 		 * @var string
 		 */
-		public $ZWayDeviceListUrl;		
+		public $ZWayDeviceListUrl;
+
 		/**
-		 * ZWayLocationListUrl
+		 * The URL to call to get the Z-Way location configuration
+		 * 
+		 * Currently unused
+		 *
+		 * default: `'http://127.0.0.1:8083/ZAutomation/api/v1/locations'`
+		 * 
+		 * @var string
+		 */
+		public $ZWayLocationListUrl;
+
+		/**
+		 * The user that should be used for authentication against the Z-Way API
+		 * 
+		 * default: empty `string`
 		 *
 		 * @var string
 		 */
-		public $ZWayLocationListUrl;		
+		public $ZWayUserName;
+
 		/**
-		 * ZWayUserName
+		 * The password that should be used for authentication against the Z-Way API
 		 *
+		 * default: empty `string`
+		 * 
 		 * @var string
 		 */
-		public $ZWayUserName;		
+		public $ZWayUserPassword;
+
 		/**
-		 * ZWayUserPassword
+		 * The (internal) array with the room definition objects
 		 *
-		 * @var string
-		 */
-		public $ZWayUserPassword;		
-		/**
-		 * RoomDefinition
-		 *
+		 * This contains the object structure that is generated from the configuration XML.
+		 * You can dump it to learn about the internal structure that is used to generate - or use it to "inject" data generated somewhere else...
+		 * 
+		 * default: empty `array`
+		 * 
 		 * @var array
 		 */
-		public $RoomDefinition; // List of rooms to draw		
+		public $RoomDefinition;
+
 		/**
-		 * FontFile
+		 * Path to the file with the font to use for drawing text
+		 * 
+		 * This should be a `.ttf` file
+		 * 
+		 * default: empty `string`
 		 *
 		 * @var string
 		 */
-		public $FontFile;		
+		public $FontFile;
+
 		/**
-		 * FontSize
+		 * The of the font when text is drawn in the image
+		 *
+		 * default: `9`
+		 * 
+		 * @var int
+		 */
+		public $FontSize;
+
+		/**
+		 * The height of the generated image (in pixel)
+		 * 
+		 * default: `10`
 		 *
 		 * @var int
 		 */
-		public $FontSize;		
+		public $ImageHeight;
+
 		/**
-		 * ImageHeight
+		 * The width of the generated image (in pixel)
+		 * 
+		 * default: `10`
 		 *
 		 * @var int
 		 */
-		public $ImageHeight;		
+		public $ImageWidth;
+
 		/**
-		 * ImageWidth
+		 * The top offset from the image border (in pixel)
+		 * 
+		 * default: `1`
 		 *
 		 * @var int
 		 */
-		public $ImageWidth;		
+		public $ImageTopOffset;
+
 		/**
-		 * ImageTopOffset
-		 *
-		 * @var int
-		 */
-		public $ImageTopOffset;		
-		/**
-		 * ImageLeftOffset
+		 * The left offset from the image border (in pixel)
+		 * 
+		 * default: `1`
 		 *
 		 * @var int
 		 */
 		public $ImageLeftOffset;
-		
+
 		private $elementCodeDirectory;
 		private $drawingCodeDirectory;
-		
-				
+
 		/**
-		 * __construct
+		 * Constructor for a new instance of the `ImageGenerator`
 		 *
-		 * @param  string $elementCodeDir
-		 * @param  string $drawingCodeDir
+		 * Initializes the internal objects and loads the "sub-modules"
+		 * 
+		 * @param  string $elementCodeDir The name / path of the folder that contains the element definitions
+		 * @param  string $drawingCodeDir The name / path of the folder that contains the drawing definitions
 		 * @return void
 		 */
-		function __construct($elementCodeDir, $drawingCodeDir)
+		function __construct($elementCodeDir = 'elements', $drawingCodeDir = 'drawing')
 		{
 			$this->ZWayActive = false;
 			$this->ZWaySimulation = false;
@@ -127,7 +178,7 @@ namespace ZmartFloorPlan
 			require_once $this->drawingCodeDirectory . '/definitions.php';
 			
 		}
-				
+
 		/**
 		 * GenerateImage
 		 *
