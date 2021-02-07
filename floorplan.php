@@ -310,8 +310,9 @@ namespace ZmartFloorPlan
       //$img = new \ZmartFloorPlan\Drawing\Elements\Window(200);
       //$img = new \ZmartFloorPlan\Drawing\Elements\CeilingLight();
       //$img = new \ZmartFloorPlan\Drawing\Elements\WindowBlinds(200);
-      
-      
+      //$img = new \ZmartFloorPlan\Drawing\Elements\Arrow();
+      $img = new \ZmartFloorPlan\Drawing\Elements\Opening(50, 5);
+
       if (isset($img)) { // drawer debugging
         $finalPixel = $img->GetImagePixel(0);
         $colorItem = imagecolorallocate($canvas, 0, 0, 0);
@@ -322,11 +323,11 @@ namespace ZmartFloorPlan
         {
           for ($row = 0; $row < count($finalPixel[$line]); $row++)
           {
-            if ($finalPixel[$line][$row]->MetaColor == 'item')
+            if ($finalPixel[$line][$row] === 1)
             {
               imagesetpixel ($canvas, $row + 10, $line + 10, $colorItem);
             }
-            else if ($finalPixel[$line][$row]->MetaColor == 'active')
+            else if ($finalPixel[$line][$row] === 255)
             {
               imagesetpixel ($canvas, $row + 10, $line + 10, $colorActivity);
             }
