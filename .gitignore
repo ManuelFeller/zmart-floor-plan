@@ -1,0 +1,10 @@
+# files from development smarthome that should not be published
+index.php
+ing-zwave.json
+rooms_fulltest.xml
+rooms_old.xml
+rooms.xml
+rooms.definition.inc.php
+demo-zwave.json
+xml.php
+drawing/functions.php
