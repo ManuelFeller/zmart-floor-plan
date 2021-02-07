@@ -8,3 +8,5 @@ rooms.definition.inc.php
 demo-zwave.json
 xml.php
 drawing/functions.php
+
+.DS_Store
