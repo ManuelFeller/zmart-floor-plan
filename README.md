@@ -11,7 +11,9 @@ So if you have a server with php running in your home network feel free to re-us
 The floor plan is generated from an XML configuration file (see [demo.xml](demo.xml)) - this way you can adjust your setup without the need to change any code files.
 
 
+## Add your own elements
 
+Have a look at the [docs/extension.md](Extension Guide) to learn more about how you can add new smart things that are drawn on the floor plan...
 
 ## Background
 
