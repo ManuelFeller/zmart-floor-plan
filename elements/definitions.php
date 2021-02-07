@@ -168,7 +168,29 @@ namespace ZmartFloorPlan\Elements\Item
       $this->RequiresApplyValues = false;
     }
   }
-  
+
+  class Opening extends \ZmartFloorPlan\Elements\Element
+  {
+    public $WallSize;
+    public $Width;
+    
+    function __construct()
+    {
+      $this->Name = '';
+      $this->Type = 'door';
+      $this->HasAutomation = false;
+      $this->AutomationName = '';
+      $this->WallSize = 1;
+      $this->MountWall = 'left';
+      $this->Width = 50;
+      $this->WallDistance = 1;
+      $this->LeftCornerDistance = 1;
+      $this->ItemColor = array(150, 150, 150);
+      $this->ActivityColor = array(255, 255, 255);
+      $this->RequiresApplyValues = false;
+    }
+  }
+
   class Window extends \ZmartFloorPlan\Elements\Element
   {
     public $WallSize;
