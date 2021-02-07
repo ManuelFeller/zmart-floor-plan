@@ -177,7 +177,7 @@ namespace ZmartFloorPlan\Elements\Item
     function __construct()
     {
       $this->Name = '';
-      $this->Type = 'door';
+      $this->Type = 'opening';
       $this->HasAutomation = false;
       $this->AutomationName = '';
       $this->WallSize = 1;

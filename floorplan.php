@@ -311,7 +311,7 @@ namespace ZmartFloorPlan
       //$img = new \ZmartFloorPlan\Drawing\Elements\CeilingLight();
       //$img = new \ZmartFloorPlan\Drawing\Elements\WindowBlinds(200);
       //$img = new \ZmartFloorPlan\Drawing\Elements\Arrow();
-      $img = new \ZmartFloorPlan\Drawing\Elements\Opening(50, 5);
+      //$img = new \ZmartFloorPlan\Drawing\Elements\Opening(50, 5);
 
       if (isset($img)) { // drawer debugging
         $finalPixel = $img->GetImagePixel(0);
@@ -601,6 +601,9 @@ namespace ZmartFloorPlan
           break;
         case 'door':
           return new \ZmartFloorPlan\Drawing\Elements\Door($element->Width, $element->OpenDirection);
+          break;
+        case 'opening':
+          return new \ZmartFloorPlan\Drawing\Elements\Opening($element->Width, $element->WallSize);
           break;
         case 'firealarm':
           return new \ZmartFloorPlan\Drawing\Elements\FireDetector();
@@ -1009,6 +1012,11 @@ namespace ZmartFloorPlan
             $this->processItemDoorSpecialFields($element, $newElementObject);
             $validType = true;
             break;
+          case 'opening':
+            $newElementObject = new \ZmartFloorPlan\Elements\Item\Opening();
+            $this->processItemOpeningSpecialFields($element, $newElementObject);
+            $validType = true;
+            break;
           case 'window':
             $newElementObject = new \ZmartFloorPlan\Elements\Item\Window();
             $this->processItemWindowSpecialFields($element, $newElementObject);
@@ -1172,6 +1180,21 @@ namespace ZmartFloorPlan
       }
     }
     
+    private function processItemOpeningSpecialFields($element, $object) {
+      if (isset($element->opening))
+      {
+        if (isset($element->opening['width']))
+        {
+          $object->Width = (int)$element->opening['width'];
+        }
+        if (isset($element->opening['wallsize']))
+        {
+          $object->WallSize = (int)$element->opening['wallsize'];
+        }
+      }
+
+    }
+
     private function processItemWindowSpecialFields($element, $object)
     {
       if (isset($element->window))
