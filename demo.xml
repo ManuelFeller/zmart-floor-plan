@@ -1,602 +1,602 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <roomplan>
-	<room name="Grundstück"><!-- required -->
-		<location left="0" top="0" /><!-- required -->
-		<size width="493" height="463" /><!-- required -->
-		<colors floor="150,222,150" wall="0,0,0" />
-		<wallsize top="0" left="0" right="0" bottom="0" />
-		<elements>
-			<element name="Aussensensor" type="genericsensor" wall="bottom"><!-- required -->
-				<position fromleft="10" distance="10" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Helligheit" type="brightnesslabel" wall="bottom"><!-- required -->
-				<position fromleft="20" distance="8" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="outdoor_brightness" /><!-- basics -->
-				<text value="Test" align="right" decimal="0" />
-			</element>
-			<element name="Luftfeuchtigkeit" type="humiditylabel" wall="bottom"><!-- required -->
-				<position fromleft="20" distance="19" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="outdoor_humidity" /><!-- basics -->
-				<text value="Test" align="right" decimal="0" suffix=" rF" />
-			</element>
-			<element name="Temperatur" type="temperaturelabel" wall="bottom"><!-- required -->
-				<position fromleft="20" distance="30" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="temp_outdoor" /><!-- basics -->
-				<text value="Test" align="right" decimal="1" />
-			</element>
-			
-		</elements>
-	</room>
-	
-	<room name="Weg zur Tür"><!-- required -->
-		<location left="201" top="445" /><!-- required -->
-		<size width="92" height="18" /><!-- required -->
-		<colors floor="222,222,222" wall="0,0,0" />
-		<wallsize top="0" left="0" right="0" bottom="0" />
-	</room>
-	
-	<room name="Flur"><!-- required -->
-		<location left="205" top="135" /><!-- required -->
-		<size width="84" height="260" /><!-- required -->
-		<colors floor="#d7d3c7" wall="0,0,0" />
-		<wallsize top="1" left="1" right="1" bottom="0" />
-		<elements>
-			<element name="Deckenlicht" type="ceilinglight" wall="left"><!-- required -->
-				<position fromleft="190" distance="38" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_on" /><!-- basics -->
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="left"><!-- required -->
-				<position fromleft="70" distance="38" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_on" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="Bottom"><!-- required -->
-				<position fromleft="35" distance="130" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			
-		</elements>
-	</room>
-	
-	<room name="Kammer Oben Mitte"><!-- required -->
-		<location left="205" top="25" /><!-- required -->
-		<size width="84" height="110" /><!-- required -->
-		<colors floor="222,222,222" wall="0,0,0" />
-		<wallsize top="5" left="1" right="1" bottom="1" />
-		<elements>
-			<element name="Tür" type="door" wall="bottom"><!-- required -->
-				<position fromleft="18" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="left" />
-			</element>
-			<element name="Fenster" type="window" wall="top"><!-- required -->
-				<position fromleft="16" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="50" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="top"><!-- required -->
-				<position fromleft="8" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="60" />
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
-				<position fromleft="35" distance="60" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_off" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
-				<position fromleft="36" distance="45" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="top"><!-- required -->
-				<position fromleft="5" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Tür-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
-				<position fromleft="55" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="door_closed" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="right"><!-- required -->
-				<position fromleft="3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="right"><!-- required -->
-				<position fromleft="14" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			
-		</elements>
-	</room>
-	
-	<room name="Eingang"><!-- required -->
-		<location left="201" top="395" /><!-- required -->
-		<size width="92" height="50" /><!-- required -->
-		<colors floor="#d7d3c7" wall="0,0,0" />
-		<wallsize top="0" left="5" right="5" bottom="5" />
-		<elements>
-			<element name="Tür Eingang" type="door" wall="bottom"><!-- required -->
-				<position fromleft="18" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="left" />
-			</element>
-			<element name="Fenster Eingang Links" type="window" wall="left"><!-- required -->
-				<position fromleft="8" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="30" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Fenster Eingang Rechts" type="window" wall="right"><!-- required -->
-				<position fromleft="8" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="30" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="left"><!-- required -->
-				<position fromleft="0" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="40" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="right"><!-- required -->
-				<position fromleft="0" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="40" />
-			</element>
-			<element name="Haustür-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
-				<position fromleft="55" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="door_closed" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="left"><!-- required -->
-				<position fromleft="-3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="right"><!-- required -->
-				<position fromleft="-3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="bottom"><!-- required -->
-				<position fromleft="3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			
-		</elements>
-	</room>
-	
-	<room name="Oben Links"><!-- required -->
-		<location left="35" top="25" /><!-- required -->
-		<size width="170" height="170" /><!-- required -->
-		<colors floor="#d7d3c7" wall="0,0,0" />
-		<wallsize top="5" left="5" right="1" bottom="1" />
-		<elements>
-			<element name="Tür" type="door" wall="right"><!-- required -->
-				<position fromleft="110" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="right" />
-			</element>
-			<element name="Fenster" type="window" wall="top"><!-- required -->
-				<position fromleft="50" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="50" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Fenster" type="window" wall="left"><!-- required -->
-				<position fromleft="60" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="50" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="top"><!-- required -->
-				<position fromleft="42" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="60" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="left"><!-- required -->
-				<position fromleft="52" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="60" />
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
-				<position fromleft="80" distance="80" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_off" /><!-- basics -->
-			</element>
-			<element name="Heizung" type="heater" wall="left"><!-- required -->
-				<position fromleft="60" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<heater width="50" />
-			</element>
-			<element name="Heizungsregler" type="thermostat" wall="left"><!-- required -->
-				<position fromleft="62" distance="5" /><!-- basics -->
-				<colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
-				<position fromleft="81" distance="65" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="top"><!-- required -->
-				<position fromleft="39" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="left"><!-- required -->
-				<position fromleft="49" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Tür-Sensor" type="openclosesensor" wall="right"><!-- required -->
-				<position fromleft="112" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="door_closed" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="right"><!-- required -->
-				<position fromleft="3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="right"><!-- required -->
-				<position fromleft="95" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			
-			
-			
-			
-			
-			<element name="Text" type="textlabel" wall="left"><!-- required -->
-				<position fromleft="20" distance="20" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<text value="Test" align="default" />
-			</element>
-			
+  <room name="Grundstück"><!-- required -->
+    <location left="0" top="0" /><!-- required -->
+    <size width="493" height="463" /><!-- required -->
+    <colors floor="150,222,150" wall="0,0,0" />
+    <wallsize top="0" left="0" right="0" bottom="0" />
+    <elements>
+      <element name="Aussensensor" type="genericsensor" wall="bottom"><!-- required -->
+        <position fromleft="10" distance="10" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Helligheit" type="brightnesslabel" wall="bottom"><!-- required -->
+        <position fromleft="20" distance="8" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="outdoor_brightness" /><!-- basics -->
+        <text value="Test" align="right" decimal="0" />
+      </element>
+      <element name="Luftfeuchtigkeit" type="humiditylabel" wall="bottom"><!-- required -->
+        <position fromleft="20" distance="19" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="outdoor_humidity" /><!-- basics -->
+        <text value="Test" align="right" decimal="0" suffix=" rF" />
+      </element>
+      <element name="Temperatur" type="temperaturelabel" wall="bottom"><!-- required -->
+        <position fromleft="20" distance="30" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="temp_outdoor" /><!-- basics -->
+        <text value="Test" align="right" decimal="1" />
+      </element>
+      
+    </elements>
+  </room>
+  
+  <room name="Weg zur Tür"><!-- required -->
+    <location left="201" top="445" /><!-- required -->
+    <size width="92" height="18" /><!-- required -->
+    <colors floor="222,222,222" wall="0,0,0" />
+    <wallsize top="0" left="0" right="0" bottom="0" />
+  </room>
+  
+  <room name="Flur"><!-- required -->
+    <location left="205" top="135" /><!-- required -->
+    <size width="84" height="260" /><!-- required -->
+    <colors floor="#d7d3c7" wall="0,0,0" />
+    <wallsize top="1" left="1" right="1" bottom="0" />
+    <elements>
+      <element name="Deckenlicht" type="ceilinglight" wall="left"><!-- required -->
+        <position fromleft="190" distance="38" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_on" /><!-- basics -->
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="left"><!-- required -->
+        <position fromleft="70" distance="38" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_on" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="Bottom"><!-- required -->
+        <position fromleft="35" distance="130" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      
+    </elements>
+  </room>
+  
+  <room name="Kammer Oben Mitte"><!-- required -->
+    <location left="205" top="25" /><!-- required -->
+    <size width="84" height="110" /><!-- required -->
+    <colors floor="222,222,222" wall="0,0,0" />
+    <wallsize top="5" left="1" right="1" bottom="1" />
+    <elements>
+      <element name="Tür" type="door" wall="bottom"><!-- required -->
+        <position fromleft="18" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="left" />
+      </element>
+      <element name="Fenster" type="window" wall="top"><!-- required -->
+        <position fromleft="16" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="50" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="top"><!-- required -->
+        <position fromleft="8" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="60" />
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
+        <position fromleft="35" distance="60" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_off" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
+        <position fromleft="36" distance="45" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="top"><!-- required -->
+        <position fromleft="5" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Tür-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
+        <position fromleft="55" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="door_closed" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="right"><!-- required -->
+        <position fromleft="3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="right"><!-- required -->
+        <position fromleft="14" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      
+    </elements>
+  </room>
+  
+  <room name="Eingang"><!-- required -->
+    <location left="201" top="395" /><!-- required -->
+    <size width="92" height="50" /><!-- required -->
+    <colors floor="#d7d3c7" wall="0,0,0" />
+    <wallsize top="0" left="5" right="5" bottom="5" />
+    <elements>
+      <element name="Tür Eingang" type="door" wall="bottom"><!-- required -->
+        <position fromleft="18" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="left" />
+      </element>
+      <element name="Fenster Eingang Links" type="window" wall="left"><!-- required -->
+        <position fromleft="8" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="30" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Fenster Eingang Rechts" type="window" wall="right"><!-- required -->
+        <position fromleft="8" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="30" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="left"><!-- required -->
+        <position fromleft="0" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="40" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="right"><!-- required -->
+        <position fromleft="0" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="40" />
+      </element>
+      <element name="Haustür-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
+        <position fromleft="55" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="door_closed" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="left"><!-- required -->
+        <position fromleft="-3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="right"><!-- required -->
+        <position fromleft="-3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="bottom"><!-- required -->
+        <position fromleft="3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      
+    </elements>
+  </room>
+  
+  <room name="Oben Links"><!-- required -->
+    <location left="35" top="25" /><!-- required -->
+    <size width="170" height="170" /><!-- required -->
+    <colors floor="#d7d3c7" wall="0,0,0" />
+    <wallsize top="5" left="5" right="1" bottom="1" />
+    <elements>
+      <element name="Tür" type="door" wall="right"><!-- required -->
+        <position fromleft="110" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="right" />
+      </element>
+      <element name="Fenster" type="window" wall="top"><!-- required -->
+        <position fromleft="50" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="50" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Fenster" type="window" wall="left"><!-- required -->
+        <position fromleft="60" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="50" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="top"><!-- required -->
+        <position fromleft="42" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="60" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="left"><!-- required -->
+        <position fromleft="52" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="60" />
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
+        <position fromleft="80" distance="80" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_off" /><!-- basics -->
+      </element>
+      <element name="Heizung" type="heater" wall="left"><!-- required -->
+        <position fromleft="60" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <heater width="50" />
+      </element>
+      <element name="Heizungsregler" type="thermostat" wall="left"><!-- required -->
+        <position fromleft="62" distance="5" /><!-- basics -->
+        <colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
+        <position fromleft="81" distance="65" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="top"><!-- required -->
+        <position fromleft="39" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="left"><!-- required -->
+        <position fromleft="49" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Tür-Sensor" type="openclosesensor" wall="right"><!-- required -->
+        <position fromleft="112" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="door_closed" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="right"><!-- required -->
+        <position fromleft="3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="right"><!-- required -->
+        <position fromleft="95" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      
+      
+      
+      
+      
+      <element name="Text" type="textlabel" wall="left"><!-- required -->
+        <position fromleft="20" distance="20" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <text value="Test" align="default" />
+      </element>
+      
 
-			
-			
-		</elements>
-	</room>
-	
-	<room name="Oben Rechts"><!-- required -->
-		<location left="289" top="25" /><!-- required -->
-		<size width="170" height="170" /><!-- required -->
-		<colors floor="#d7d3c7" wall="0,0,0" />
-		<wallsize top="5" left="1" right="5" bottom="1" />
-		<elements>
-			<element name="Tür" type="door" wall="left"><!-- required -->
-				<position fromleft="6" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="left" />
-			</element>
-			<element name="Fenster" type="window" wall="top"><!-- required -->
-				<position fromleft="60" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="50" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Fenster" type="window" wall="right"><!-- required -->
-				<position fromleft="50" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="50" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="top"><!-- required -->
-				<position fromleft="52" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="60" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="right"><!-- required -->
-				<position fromleft="42" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="60" />
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
-				<position fromleft="75" distance="80" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_off" /><!-- basics -->
-			</element>
-			<element name="Heizung" type="heater" wall="right"><!-- required -->
-				<position fromleft="50" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<heater width="50" />
-			</element>
-			<element name="Heizungsregler" type="thermostat" wall="right"><!-- required -->
-				<position fromleft="52" distance="5" /><!-- basics -->
-				<colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
-				<position fromleft="76" distance="65" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="top"><!-- required -->
-				<position fromleft="49" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="right"><!-- required -->
-				<position fromleft="39" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Tür-Sensor" type="openclosesensor" wall="left"><!-- required -->
-				<position fromleft="43" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="door_closed" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="left"><!-- required -->
-				<position fromleft="141" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="left"><!-- required -->
-				<position fromleft="152" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_on" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="top"><!-- required -->
-				<position fromleft="115" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="top"><!-- required -->
-				<position fromleft="126" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="bottom"><!-- required -->
-				<position fromleft="3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_on" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="bottom"><!-- required -->
-				<position fromleft="14" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			
-		</elements>
-	</room>
-	
-	
-	<room name="Unten Links"><!-- required -->
-		<location left="35" top="195" /><!-- required -->
-		<size width="170" height="200" /><!-- required -->
-		<colors floor="#d7d3c7" wall="0,0,0" />
-		<wallsize top="1" left="5" right="1" bottom="5" />
-		<elements>
-			<element name="Tür" type="door" wall="right"><!-- required -->
-				<position fromleft="6" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="left" />
-			</element>
-			<element name="Fenster" type="window" wall="left"><!-- required -->
-				<position fromleft="80" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="60" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Fenster" type="window" wall="bottom"><!-- required -->
-				<position fromleft="55" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="80" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="left"><!-- required -->
-				<position fromleft="72" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="70" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="bottom"><!-- required -->
-				<position fromleft="47" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="90" />
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
-				<position fromleft="80" distance="92" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_off" /><!-- basics -->
-			</element>
-			<element name="Heizung" type="heater" wall="bottom"><!-- required -->
-				<position fromleft="55" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<heater width="80" />
-			</element>
-			<element name="Heizungsregler" type="thermostat" wall="bottom"><!-- required -->
-				<position fromleft="57" distance="5" /><!-- basics -->
-				<colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
-				<position fromleft="81" distance="75" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="left"><!-- required -->
-				<position fromleft="69" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
-				<position fromleft="44" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_closed" /><!-- basics -->
-			</element>
-			<element name="Tür-Sensor" type="openclosesensor" wall="right"><!-- required -->
-				<position fromleft="43" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="door_open" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="top"><!-- required -->
-				<position fromleft="3" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Stromverbrauch" type="powerlabel" wall="top"><!-- required -->
-				<position fromleft="3" distance="6" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="indoor_power_1" /><!-- basics -->
-				<text value="Test" align="default" decimal="1" />
-			</element>
-			<element name="Steckdose" type="wallplug" wall="top"><!-- required -->
-				<position fromleft="152" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Stromverbrauch" type="powerlabel" wall="top"><!-- required -->
-				<position fromleft="133" distance="6" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="indoor_power_1" /><!-- basics -->
-				<text value="Test" align="right" decimal="1" />
-			</element>
-			<element name="Steckdose" type="wallplug" wall="right"><!-- required -->
-				<position fromleft="171" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_off" /><!-- basics -->
-			</element>
-			<element name="Stromverbrauch" type="powerlabel" wall="right"><!-- required -->
-				<position fromleft="170" distance="7" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="indoor_power_1" /><!-- basics -->
-				<text value="Test" align="default" decimal="1" />
-			</element>
-			<element name="Steckdose" type="wallplug" wall="right"><!-- required -->
-				<position fromleft="182" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="wallplug_on" /><!-- basics -->
-			</element>
-			<element name="Stromverbrauch" type="powerlabel" wall="right"><!-- required -->
-				<position fromleft="182" distance="7" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="indoor_power_2" /><!-- basics -->
-				<text value="Test" align="default" decimal="1" />
-			</element>
-			
-		</elements>
-	</room>
-	
-	<room name="Kellertreppe"><!-- required -->
-		<location left="289" top="195" /><!-- required -->
-		<size width="170" height="60" /><!-- required -->
-		<colors floor="200,200,200" wall="0,0,0" />
-		<wallsize top="1" left="1" right="5" bottom="1" />
-		<elements>
-			<element name="Tür" type="door" wall="left"><!-- required -->
-				<position fromleft="5" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="left" />
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
-				<position fromleft="73" distance="25" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_on" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
-				<position fromleft="55" distance="25" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Wasser Alarm" type="floodsensor" wall="bottom"><!-- required -->
-				<position fromleft="10" distance="21" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Tür-Sensor" type="openclosesensor" wall="left"><!-- required -->
-				<position fromleft="42" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="door_open" /><!-- basics -->
-			</element>
-			
-		</elements>
-	</room>
-	
-	<room name="Unten Rechts"><!-- required -->
-		<location left="289" top="255" /><!-- required -->
-		<size width="170" height="140" /><!-- required -->
-		<colors floor="250,250,250" wall="0,0,0" />
-		<wallsize top="1" left="1" right="5" bottom="5" />
-		<elements>
-			<element name="Tür" type="door" wall="left"><!-- required -->
-				<position fromleft="80" distance="-1" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<door width="49" opendirection="right" />
-			</element>
-			<element name="Fenster" type="window" wall="right"><!-- required -->
-				<position fromleft="60" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="40" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Fenster" type="window" wall="bottom"><!-- required -->
-				<position fromleft="60" distance="-7" /><!-- basics -->
-				<colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
-				<window width="50" opendirection="left" wallsize="5" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="right"><!-- required -->
-				<position fromleft="52" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="50" />
-			</element>
-			<element name="Rollladen" type="windowblinds" wall="bottom"><!-- required -->
-				<position fromleft="52" distance="-7" /><!-- basics -->
-				<colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
-				<blinds width="60" />
-			</element>
-			<element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
-				<position fromleft="73" distance="65" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
-				<automation active="1" devicename="light_off" /><!-- basics -->
-			</element>
-			<element name="Heizung" type="heater" wall="bottom"><!-- required -->
-				<position fromleft="114" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<heater width="50" />
-			</element>
-			<element name="Heizungsregler" type="thermostat" wall="bottom"><!-- required -->
-				<position fromleft="145" distance="5" /><!-- basics -->
-				<colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
-			</element>
-			<element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
-				<position fromleft="74" distance="80" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="right"><!-- required -->
-				<position fromleft="49" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_open" /><!-- basics -->
-			</element>
-			<element name="Fenster-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
-				<position fromleft="49" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
-				<automation active="1" devicename="window_open" /><!-- basics -->
-			</element>
-			<element name="Tür-Sensor" type="openclosesensor" wall="left"><!-- required -->
-				<position fromleft="82" distance="-3" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
-				<automation active="1" devicename="door_closed" /><!-- basics -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="left"><!-- required -->
-				<position fromleft="50" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="222,222,222" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-			</element>
-			<element name="Steckdose" type="wallplug" wall="left"><!-- required -->
-				<position fromleft="61" distance="1" /><!-- basics -->
-				<colors item="0,0,0" highlight="222,222,222" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
-			</element>
-			<element name="Aussensensor" type="genericsensor" wall="top"><!-- required -->
-				<position fromleft="60" distance="60" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-			</element>
-			<element name="Temperatur" type="temperaturelabel" wall="top"><!-- required -->
-				<position fromleft="60" distance="47" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="temp_indoor_1" /><!-- basics -->
-				<text value="Test" align="center" decimal="1" />
-			</element>
-			<element name="Luftfeuchtigkeit" type="humiditylabel" wall="top"><!-- required -->
-				<position fromleft="60" distance="65" /><!-- basics -->
-				<colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
-				<automation active="1" devicename="indoor_humidity_1" /><!-- basics -->
-				<text value="Test" align="center" decimal="0" suffix=" rF" />
-			</element>
-			
-		</elements>
-	</room>
-	
+      
+      
+    </elements>
+  </room>
+  
+  <room name="Oben Rechts"><!-- required -->
+    <location left="289" top="25" /><!-- required -->
+    <size width="170" height="170" /><!-- required -->
+    <colors floor="#d7d3c7" wall="0,0,0" />
+    <wallsize top="5" left="1" right="5" bottom="1" />
+    <elements>
+      <element name="Tür" type="door" wall="left"><!-- required -->
+        <position fromleft="6" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="left" />
+      </element>
+      <element name="Fenster" type="window" wall="top"><!-- required -->
+        <position fromleft="60" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="50" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Fenster" type="window" wall="right"><!-- required -->
+        <position fromleft="50" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="50" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="top"><!-- required -->
+        <position fromleft="52" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="60" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="right"><!-- required -->
+        <position fromleft="42" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="60" />
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
+        <position fromleft="75" distance="80" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_off" /><!-- basics -->
+      </element>
+      <element name="Heizung" type="heater" wall="right"><!-- required -->
+        <position fromleft="50" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <heater width="50" />
+      </element>
+      <element name="Heizungsregler" type="thermostat" wall="right"><!-- required -->
+        <position fromleft="52" distance="5" /><!-- basics -->
+        <colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
+        <position fromleft="76" distance="65" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="top"><!-- required -->
+        <position fromleft="49" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="right"><!-- required -->
+        <position fromleft="39" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Tür-Sensor" type="openclosesensor" wall="left"><!-- required -->
+        <position fromleft="43" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="door_closed" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="left"><!-- required -->
+        <position fromleft="141" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="left"><!-- required -->
+        <position fromleft="152" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_on" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="top"><!-- required -->
+        <position fromleft="115" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="top"><!-- required -->
+        <position fromleft="126" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="bottom"><!-- required -->
+        <position fromleft="3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_on" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="bottom"><!-- required -->
+        <position fromleft="14" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      
+    </elements>
+  </room>
+  
+  
+  <room name="Unten Links"><!-- required -->
+    <location left="35" top="195" /><!-- required -->
+    <size width="170" height="200" /><!-- required -->
+    <colors floor="#d7d3c7" wall="0,0,0" />
+    <wallsize top="1" left="5" right="1" bottom="5" />
+    <elements>
+      <element name="Tür" type="door" wall="right"><!-- required -->
+        <position fromleft="6" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="left" />
+      </element>
+      <element name="Fenster" type="window" wall="left"><!-- required -->
+        <position fromleft="80" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="60" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Fenster" type="window" wall="bottom"><!-- required -->
+        <position fromleft="55" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="80" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="left"><!-- required -->
+        <position fromleft="72" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="70" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="bottom"><!-- required -->
+        <position fromleft="47" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="90" />
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
+        <position fromleft="80" distance="92" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_off" /><!-- basics -->
+      </element>
+      <element name="Heizung" type="heater" wall="bottom"><!-- required -->
+        <position fromleft="55" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <heater width="80" />
+      </element>
+      <element name="Heizungsregler" type="thermostat" wall="bottom"><!-- required -->
+        <position fromleft="57" distance="5" /><!-- basics -->
+        <colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
+        <position fromleft="81" distance="75" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="left"><!-- required -->
+        <position fromleft="69" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
+        <position fromleft="44" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_closed" /><!-- basics -->
+      </element>
+      <element name="Tür-Sensor" type="openclosesensor" wall="right"><!-- required -->
+        <position fromleft="43" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="door_open" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="top"><!-- required -->
+        <position fromleft="3" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Stromverbrauch" type="powerlabel" wall="top"><!-- required -->
+        <position fromleft="3" distance="6" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="indoor_power_1" /><!-- basics -->
+        <text value="Test" align="default" decimal="1" />
+      </element>
+      <element name="Steckdose" type="wallplug" wall="top"><!-- required -->
+        <position fromleft="152" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Stromverbrauch" type="powerlabel" wall="top"><!-- required -->
+        <position fromleft="133" distance="6" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="indoor_power_1" /><!-- basics -->
+        <text value="Test" align="right" decimal="1" />
+      </element>
+      <element name="Steckdose" type="wallplug" wall="right"><!-- required -->
+        <position fromleft="171" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_off" /><!-- basics -->
+      </element>
+      <element name="Stromverbrauch" type="powerlabel" wall="right"><!-- required -->
+        <position fromleft="170" distance="7" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="indoor_power_1" /><!-- basics -->
+        <text value="Test" align="default" decimal="1" />
+      </element>
+      <element name="Steckdose" type="wallplug" wall="right"><!-- required -->
+        <position fromleft="182" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="wallplug_on" /><!-- basics -->
+      </element>
+      <element name="Stromverbrauch" type="powerlabel" wall="right"><!-- required -->
+        <position fromleft="182" distance="7" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="indoor_power_2" /><!-- basics -->
+        <text value="Test" align="default" decimal="1" />
+      </element>
+      
+    </elements>
+  </room>
+  
+  <room name="Kellertreppe"><!-- required -->
+    <location left="289" top="195" /><!-- required -->
+    <size width="170" height="60" /><!-- required -->
+    <colors floor="200,200,200" wall="0,0,0" />
+    <wallsize top="1" left="1" right="5" bottom="1" />
+    <elements>
+      <element name="Tür" type="door" wall="left"><!-- required -->
+        <position fromleft="5" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="left" />
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
+        <position fromleft="73" distance="25" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_on" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
+        <position fromleft="55" distance="25" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Wasser Alarm" type="floodsensor" wall="bottom"><!-- required -->
+        <position fromleft="10" distance="21" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Tür-Sensor" type="openclosesensor" wall="left"><!-- required -->
+        <position fromleft="42" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="door_open" /><!-- basics -->
+      </element>
+      
+    </elements>
+  </room>
+  
+  <room name="Unten Rechts"><!-- required -->
+    <location left="289" top="255" /><!-- required -->
+    <size width="170" height="140" /><!-- required -->
+    <colors floor="250,250,250" wall="0,0,0" />
+    <wallsize top="1" left="1" right="5" bottom="5" />
+    <elements>
+      <element name="Tür" type="door" wall="left"><!-- required -->
+        <position fromleft="80" distance="-1" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <door width="49" opendirection="right" />
+      </element>
+      <element name="Fenster" type="window" wall="right"><!-- required -->
+        <position fromleft="60" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="40" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Fenster" type="window" wall="bottom"><!-- required -->
+        <position fromleft="60" distance="-7" /><!-- basics -->
+        <colors item="150,150,150" highlight="255,255,255" /><!-- basics -->
+        <window width="50" opendirection="left" wallsize="5" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="right"><!-- required -->
+        <position fromleft="52" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="50" />
+      </element>
+      <element name="Rollladen" type="windowblinds" wall="bottom"><!-- required -->
+        <position fromleft="52" distance="-7" /><!-- basics -->
+        <colors item="75,75,75" highlight="120,120,120" /><!-- basics -->
+        <blinds width="60" />
+      </element>
+      <element name="Deckenlicht" type="ceilinglight" wall="bottom"><!-- required -->
+        <position fromleft="73" distance="65" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" on="222,222,0" off="150,200,255"  /><!-- basics + specific -->
+        <automation active="1" devicename="light_off" /><!-- basics -->
+      </element>
+      <element name="Heizung" type="heater" wall="bottom"><!-- required -->
+        <position fromleft="114" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <heater width="50" />
+      </element>
+      <element name="Heizungsregler" type="thermostat" wall="bottom"><!-- required -->
+        <position fromleft="145" distance="5" /><!-- basics -->
+        <colors item="0,0,0" highlight="150,200,255" /><!-- basics -->
+      </element>
+      <element name="Feuermelder" type="firedetector" wall="bottom"><!-- required -->
+        <position fromleft="74" distance="80" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="right"><!-- required -->
+        <position fromleft="49" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_open" /><!-- basics -->
+      </element>
+      <element name="Fenster-Sensor" type="openclosesensor" wall="bottom"><!-- required -->
+        <position fromleft="49" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="200,50,50" closed="50,200,50" /><!-- basics + specific -->
+        <automation active="1" devicename="window_open" /><!-- basics -->
+      </element>
+      <element name="Tür-Sensor" type="openclosesensor" wall="left"><!-- required -->
+        <position fromleft="82" distance="-3" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" open="255,150,50" closed="150,200,255" /><!-- basics + specific -->
+        <automation active="1" devicename="door_closed" /><!-- basics -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="left"><!-- required -->
+        <position fromleft="50" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="222,222,222" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+      </element>
+      <element name="Steckdose" type="wallplug" wall="left"><!-- required -->
+        <position fromleft="61" distance="1" /><!-- basics -->
+        <colors item="0,0,0" highlight="222,222,222" on="255,150,50" off="150,200,255" /><!-- basics + specific -->
+      </element>
+      <element name="Aussensensor" type="genericsensor" wall="top"><!-- required -->
+        <position fromleft="60" distance="60" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+      </element>
+      <element name="Temperatur" type="temperaturelabel" wall="top"><!-- required -->
+        <position fromleft="60" distance="47" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="temp_indoor_1" /><!-- basics -->
+        <text value="Test" align="center" decimal="1" />
+      </element>
+      <element name="Luftfeuchtigkeit" type="humiditylabel" wall="top"><!-- required -->
+        <position fromleft="60" distance="65" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" devicename="indoor_humidity_1" /><!-- basics -->
+        <text value="Test" align="center" decimal="0" suffix=" rF" />
+      </element>
+      
+    </elements>
+  </room>
+  
 </roomplan>
