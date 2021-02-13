@@ -13,7 +13,7 @@ The floor plan is generated from an XML configuration file (see [demo.xml](demo.
 
 ## Add your own elements
 
-Have a look at the [Extension Guide](docs/extension.md) to learn more about how you can add new smart things that are drawn on the floor plan...
+Have a look at the [Extension Guide](doc/extension.md) to learn more about how you can add new smart things that are drawn on the floor plan...
 
 ## Background
 
