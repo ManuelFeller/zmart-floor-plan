@@ -10,10 +10,18 @@ So if you have a server with php running in your home network feel free to re-us
 
 The floor plan is generated from an XML configuration file (see [demo.xml](demo.xml)) - this way you can adjust your setup without the need to change any code files.
 
+## Existing elements
+
+You can find an overview of all currently supported elements in the [Available Elements](doc/elements.md) file.
 
 ## Add your own elements
 
 Have a look at the [Extension Guide](doc/extension.md) to learn more about how you can add new smart things that are drawn on the floor plan...
+
+
+## Todo list
+
+As written below this script was more a "I need something that can be created quickly for my personal smarthome" - thus a few things were created in a way that I now also do no longer consider as the best way to do it. So I started to create a todo list with improvements I have in mind - you can see it [here](doc/todo.md)
 
 ## Background
 
