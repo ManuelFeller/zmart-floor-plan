@@ -322,6 +322,7 @@ namespace ZmartFloorPlan
       //$img = new \ZmartFloorPlan\Drawing\Elements\WindowBlinds(200);
       //$img = new \ZmartFloorPlan\Drawing\Elements\Arrow();
       //$img = new \ZmartFloorPlan\Drawing\Elements\Opening(50, 5);
+      //$img = new \ZmartFloorPlan\Drawing\Elements\FairyLight(50);
 
       if (isset($img)) { // drawer debugging
         $finalPixel = $img->GetImagePixel(0);
@@ -592,7 +593,6 @@ namespace ZmartFloorPlan
       }
     }
     
-    
     private function getPixelElementDrawing(\ZmartFloorPlan\Elements\Element $element)
     {
       switch (strtolower($element->Type))
@@ -629,6 +629,9 @@ namespace ZmartFloorPlan
           break;
         case 'ceilinglight':
           return new \ZmartFloorPlan\Drawing\Elements\CeilingLight();
+          break;
+        case 'fairylight':
+          return new \ZmartFloorPlan\Drawing\Elements\FairyLight($element->Width);
           break;
         case 'windowblinds':
           return new \ZmartFloorPlan\Drawing\Elements\WindowBlinds($element->Width);
@@ -972,8 +975,6 @@ namespace ZmartFloorPlan
       $this->RoomDefinition = $roomDefinition;
     }
     
-    
-    
     private function processElementData($element, \ZmartFloorPlan\Elements\Room $elementParent)
     {
       //echo '+++++<br />';
@@ -1055,6 +1056,12 @@ namespace ZmartFloorPlan
             break;
           case 'ceilinglight':
             $newElementObject = new \ZmartFloorPlan\Elements\Item\CeilingLight();
+            $this->processItemOnOffStateSpecialFields($element, $newElementObject);
+            $validType = true;
+            break;
+          case 'fairylight':
+            $newElementObject = new \ZmartFloorPlan\Elements\Item\FairyLight();
+            $this->processItemFairyLightsSpecialFields($element, $newElementObject);
             $this->processItemOnOffStateSpecialFields($element, $newElementObject);
             $validType = true;
             break;
@@ -1213,7 +1220,6 @@ namespace ZmartFloorPlan
           $object->WallSize = (int)$element->opening['wallsize'];
         }
       }
-
     }
 
     private function processItemWindowSpecialFields($element, $object)
@@ -1261,7 +1267,6 @@ namespace ZmartFloorPlan
       }
     }
     
-
     private function processItemNumericLabelSpecialFields($element, $object)
     {
       if (isset($element->text))
@@ -1328,7 +1333,17 @@ namespace ZmartFloorPlan
         }
       }
     }
-    
+
+    private function processItemFairyLightsSpecialFields($element, $object) {
+      if (isset($element->fairylight))
+      {
+        if (isset($element->fairylight['width']))
+        {
+          $object->Width = (int)$element->fairylight['width'];
+        }
+      }
+    }
+
     private function processItemOpenCloseStateSpecialFields($element, $object)
     {
       if (isset($element->colors))
@@ -1351,7 +1366,6 @@ namespace ZmartFloorPlan
         }
       }
     }
-    
     
     /*
     

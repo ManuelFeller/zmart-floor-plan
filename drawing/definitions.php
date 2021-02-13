@@ -149,7 +149,34 @@ namespace ZmartFloorPlan\Drawing\Elements
 
     }
   }
-  
+
+  class FairyLight extends \ZmartFloorPlan\Drawing\Drawing
+  {
+    function __construct($width)
+    {
+      $this->Height = 3;
+      // width can be 3,5,7,9,11,... so
+      // divide width by two, throw away any possible remainder, multiply by 2 again and then add 1
+      $this->Width = (explode('.',($width / 2))[0] * 2) + 1;
+      $this->initPixels();
+      
+      for ($row = 0; $row < $this->Width; $row++)
+      {
+        $odd = $row % 2;
+        if ($odd == 0) {
+          $this->Pixels[0][$row] = 255;
+          $this->Pixels[1][$row] = 255;
+          $this->Pixels[2][$row] = 255;
+        } else {
+          $this->Pixels[0][$row] = 255;
+          $this->Pixels[1][$row] = 1;
+          $this->Pixels[2][$row] = 255;
+        }
+        
+      }
+    }
+  }
+
   class WallPlug extends \ZmartFloorPlan\Drawing\Drawing
   {
     function __construct()

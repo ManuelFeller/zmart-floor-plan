@@ -1,4 +1,4 @@
-<?php /* Zmart Floor Plan | definition classes for diffrent objects (sensors, label, ...) | MIT License | By Manuel Feller, 2016 - 2021 */
+<?php /* Zmart Floor Plan | definition classes for different objects (sensors, label, ...) | MIT License | By Manuel Feller, 2016 - 2021 */
 
 namespace ZmartFloorPlan\Elements\Item
 {
@@ -342,7 +342,40 @@ namespace ZmartFloorPlan\Elements\Item
       else { $this->ActivityColor = $this->OnColor; }
     }
   }
-  
+
+  class FairyLight extends \ZmartFloorPlan\Elements\Element
+  {
+    public $OnColor;
+    public $OffColor;
+    public $MetricFields;
+    public $Width;
+    
+    function __construct()
+    {
+      $this->Name = '';
+      $this->Type = 'fairylight';
+      $this->HasAutomation = false;
+      $this->AutomationName = '';
+      $this->MountWall = 'left';
+      $this->Width = 50;
+      $this->WallDistance = 1;
+      $this->LeftCornerDistance = 1;
+      $this->ItemColor = array(150, 150, 150);
+      $this->ActivityColor = array(255, 255, 255);
+      $this->RequiresApplyValues = true;
+      $this->MetricFields = array('level' => '');
+      $this->OnColor = array(255, 150, 50);
+      $this->OffColor = array(150, 200, 255);
+    }
+
+    function ApplyValues()
+    {
+      if ($this->MetricFields['level'] == "off") { $this->ActivityColor = $this->OffColor; }
+      else { $this->ActivityColor = $this->OnColor; }
+    }
+
+  }
+
   class Thermostat extends \ZmartFloorPlan\Elements\Element
   {
     function __construct()
