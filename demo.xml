@@ -6,6 +6,13 @@
     <colors floor="150,222,150" wall="0,0,0" />
     <wallsize top="0" left="0" right="0" bottom="0" />
     <elements>
+
+      <element name="Timestamp" type="timestamplabel" wall="bottom"><!-- required -->
+        <position fromleft="340" distance="10" /><!-- basics -->
+        <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
+        <automation active="1" source="zmart" /><!-- basics -->
+        <text value="TIMESTAMP HERE" align="left" format="Y-m-d H:i:s" />
+      </element>
       <element name="Aussensensor" type="genericsensor" wall="bottom"><!-- required -->
         <position fromleft="10" distance="10" /><!-- basics -->
         <colors item="0,0,0" highlight="255,255,255" /><!-- basics -->
