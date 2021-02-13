@@ -26,6 +26,31 @@ namespace ZmartFloorPlan\Elements\Item
     }
   }
   
+  class TimestampLabel extends \ZmartFloorPlan\Elements\Item\TextLabel
+  {
+    
+    function __construct()
+    {
+      $this->Name = '';
+      $this->Type = 'text';
+      $this->TextAlign = 'default';
+      $this->HasAutomation = false;
+      $this->AutomationName = '';
+      $this->DisplayText = '';
+      $this->MountWall = 'left';
+      $this->WallDistance = 1;
+      $this->LeftCornerDistance = 1;
+      $this->ItemColor = array(0, 0, 0);
+      $this->ActivityColor = array(255, 255, 255);
+      $this->RequiresApplyValues = true;
+    }
+    
+    function ApplyValues()
+    {
+      $this->DisplayText = '2020-01-01 12:34:56';
+    }
+  }
+
   class TemperatureLabel extends \ZmartFloorPlan\Elements\Item\TextLabel
   {
     public $DecimalPlaces;

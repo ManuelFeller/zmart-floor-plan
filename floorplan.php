@@ -206,26 +206,37 @@ namespace ZmartFloorPlan
           {
             if ($this->RoomDefinition[$room]->Elements[$element]->HasAutomation)
             {
-              // we have an element that is configured to be filled by Z-Wave data,
-              // so lets check the recieved list of Z-Wave devices
-              foreach ($devices as &$device)
-              {
-                // if ID of device and ID in element match
-                if ($device->id == $this->RoomDefinition[$room]->Elements[$element]->AutomationName)
+              // check the data source where the value should be loaded from
+              if ($this->RoomDefinition[$room]->Elements[$element]->AutomationDataSource == 'zmart') {
+                // this is an element that gets its data internally
+                if ($this->RoomDefinition[$room]->Elements[$element]->RequiresApplyValues)
                 {
-                  // check for known field(s) and (if found) save them in the metrics array of the element to draw
-                  if (isset($this->RoomDefinition[$room]->Elements[$element]->MetricFields['level'])) // value of sensor
+                  $this->RoomDefinition[$room]->Elements[$element]->ApplyValues();
+                }
+              } else {
+                // ToDo: this is the Z-Way method, this may need some adjustment when we open this up to more data sources
+                // we have an element that is configured to be filled by Z-Wave data,
+                // so lets check the received list of Z-Wave devices
+                foreach ($devices as &$device)
+                {
+                  // if ID of device and ID in element match
+                  if ($device->id == $this->RoomDefinition[$room]->Elements[$element]->AutomationName)
                   {
-                    $this->RoomDefinition[$room]->Elements[$element]->MetricFields['level'] = $device->metrics->level;
-                  }
-                  if (isset($this->RoomDefinition[$room]->Elements[$element]->MetricFields['scaleTitle'])) // unit name provided by device
-                  {
-                    $this->RoomDefinition[$room]->Elements[$element]->MetricFields['scaleTitle'] = $device->metrics->scaleTitle;
-                  }
-                  // in case element to draw indicates it provides an ApplyValues procedure: call it
-                  if ($device->id == $this->RoomDefinition[$room]->Elements[$element]->RequiresApplyValues)
-                  {
-                    $this->RoomDefinition[$room]->Elements[$element]->ApplyValues();
+                    // check for known field(s) and (if found) save them in the metrics array of the element to draw
+                    if (isset($this->RoomDefinition[$room]->Elements[$element]->MetricFields['level'])) // value of sensor
+                    {
+                      $this->RoomDefinition[$room]->Elements[$element]->MetricFields['level'] = $device->metrics->level;
+                    }
+                    if (isset($this->RoomDefinition[$room]->Elements[$element]->MetricFields['scaleTitle'])) // unit name provided by device
+                    {
+                      $this->RoomDefinition[$room]->Elements[$element]->MetricFields['scaleTitle'] = $device->metrics->scaleTitle;
+                    }
+                    // in case element to draw indicates it provides an ApplyValues procedure: call it
+                    // ToDo: fix this, assign is always successful but this should check the property !!!
+                    if ($device->id == $this->RoomDefinition[$room]->Elements[$element]->RequiresApplyValues)
+                    {
+                      $this->RoomDefinition[$room]->Elements[$element]->ApplyValues();
+                    }
                   }
                 }
               }
@@ -982,6 +993,11 @@ namespace ZmartFloorPlan
             $this->processItemTextLabelSpecialFields($element, $newElementObject);
             $validType = true;
             break;
+          case 'timestamplabel':
+            $newElementObject = new \ZmartFloorPlan\Elements\Item\TimestampLabel();
+            $this->processItemTextLabelSpecialFields($element, $newElementObject);
+            $validType = true;
+            break;
           case 'temperaturelabel':
             $newElementObject = new \ZmartFloorPlan\Elements\Item\TemperatureLabel();
             $this->processItemTextLabelSpecialFields($element, $newElementObject);
@@ -1147,15 +1163,20 @@ namespace ZmartFloorPlan
       }
       if (isset($element->automation))
       {
+        $dataSource = 'zway';
+        if (isset($element->automation['source'])) {
+          // ToDo: make this filtered to possible valid sources only ?
+          $dataSource = $element->automation['source'];
+        }
+        $object->AutomationDataSource = $dataSource;
         if (isset($element->automation['active']))
         {
           if ((string)$element->automation['active'] == '1' || strtolower((string)$element->automation['active']) == 'true')
           {
+            // not all automation elements need a device name (e.g. internal ones), so save that setting already
+            $object->HasAutomation = true;
             if (isset($element->automation['devicename']))
             {
-              //echo 'Automation active<br />';
-              //echo $element->automation['devicename'] . '<br />';
-              $object->HasAutomation = true;
               $object->AutomationName = (string)$element->automation['devicename'];
             }
           }
@@ -1228,7 +1249,7 @@ namespace ZmartFloorPlan
         }
       }
     }
-    
+
     private function processItemNumericLabelSpecialFields($element, $object)
     {
       if (isset($element->text))

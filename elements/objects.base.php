@@ -52,6 +52,7 @@ namespace ZmartFloorPlan\Elements
     public $HasAutomation;
     public $AutomationName;
     public $RequiresApplyValues;
+    public $AutomationDataSource;
     
     function __construct()
     {
@@ -59,6 +60,7 @@ namespace ZmartFloorPlan\Elements
       $this->Type = 'unknown';
       $this->HasAutomation = false;
       $this->AutomationName = '';
+      $this->AutomationDataSource = '';
       $this->MountWall = 'left';
       $this->WallDistance = 1;
       $this->LeftCornerDistance = 1;
