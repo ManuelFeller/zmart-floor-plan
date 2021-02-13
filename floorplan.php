@@ -232,8 +232,7 @@ namespace ZmartFloorPlan
                       $this->RoomDefinition[$room]->Elements[$element]->MetricFields['scaleTitle'] = $device->metrics->scaleTitle;
                     }
                     // in case element to draw indicates it provides an ApplyValues procedure: call it
-                    // ToDo: fix this, assign is always successful but this should check the property !!!
-                    if ($device->id == $this->RoomDefinition[$room]->Elements[$element]->RequiresApplyValues)
+                    if ($this->RoomDefinition[$room]->Elements[$element]->RequiresApplyValues)
                     {
                       $this->RoomDefinition[$room]->Elements[$element]->ApplyValues();
                     }
