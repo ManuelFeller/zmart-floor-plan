@@ -29,6 +29,8 @@ namespace ZmartFloorPlan\Elements\Item
   class TimestampLabel extends \ZmartFloorPlan\Elements\Item\TextLabel
   {
     
+    public $Format;
+
     function __construct()
     {
       $this->Name = '';
@@ -43,11 +45,12 @@ namespace ZmartFloorPlan\Elements\Item
       $this->ItemColor = array(0, 0, 0);
       $this->ActivityColor = array(255, 255, 255);
       $this->RequiresApplyValues = true;
+      $this->Format = 'H:i:s';
     }
     
     function ApplyValues()
     {
-      $this->DisplayText = '2020-01-01 12:34:56';
+      $this->DisplayText = date($this->Format);
     }
   }
 

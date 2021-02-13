@@ -995,6 +995,7 @@ namespace ZmartFloorPlan
           case 'timestamplabel':
             $newElementObject = new \ZmartFloorPlan\Elements\Item\TimestampLabel();
             $this->processItemTextLabelSpecialFields($element, $newElementObject);
+            $this->processItemTimestampLabelSpecialFields($element, $newElementObject);
             $validType = true;
             break;
           case 'temperaturelabel':
@@ -1248,6 +1249,18 @@ namespace ZmartFloorPlan
         }
       }
     }
+
+    private function processItemTimestampLabelSpecialFields($element, $object)
+    {
+      if (isset($element->text))
+      {
+        if (isset($element->text['format']))
+        {
+          $object->Format = (string)$element->text['format'];
+        }
+      }
+    }
+    
 
     private function processItemNumericLabelSpecialFields($element, $object)
     {
