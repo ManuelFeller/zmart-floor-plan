@@ -4,7 +4,7 @@ This document lists all elements that can be drawn by the script.
 
 ## Room
 
-The room is the basic element to have. I is currently the only allowed child for the `<roomplan>` tag in the XML that describes the floor plan.
+The room is the basic element to use for all "areas" in your smarthome. I is currently the only allowed child for the `<roomplan>` tag in the XML that describes the floor plan.
 It basically defines a rectangle and the borders that should be drawn around it.
 
 It was originally thought to be "just" a room, but you can also draw pathways, property-boundaries and everything lese that you can create out of rectangles.
